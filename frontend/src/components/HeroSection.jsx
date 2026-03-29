@@ -44,16 +44,7 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative z-20 container mx-auto px-6 text-center">
         <div className="max-w-5xl mx-auto space-y-10 animate-fade-in-up">
-          {/* Premium Logo */}
-          <div className="flex justify-center mb-8">
-            <img
-              src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/j6me6snb_logo-lion-celetse.jpg"
-              alt="Lion Céleste"
-              className="h-40 w-40 lg:h-48 lg:w-48 animate-scale-in gold-glow"
-            />
-          </div>
-
-          {/* Main Heading */}
+          {/* Main Heading - Minimal, da Bild schon Text hat */}
           <h1 className="font-serif text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-semibold text-foreground leading-[0.9] tracking-tight">
             Lion Céleste
           </h1>
@@ -67,12 +58,7 @@ export const HeroSection = () => {
 
           {/* Subheading */}
           <p className="text-2xl sm:text-3xl lg:text-4xl text-foreground/90 font-serif font-light italic leading-relaxed">
-            Wo himmlische Eleganz auf zeitlosen Luxus trifft
-          </p>
-
-          {/* Description */}
-          <p className="text-base lg:text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed font-light">
-            Exklusive Schmuckkreationen von Leon Gogoll – handgefertigt mit Leidenschaft, geschaffen für die Ewigkeit.
+            Wo Generationen sich verbinden
           </p>
 
           {/* CTA Buttons */}
