@@ -90,17 +90,25 @@ export const Navigation = () => {
             {/* Mobile Menu */}
             <Sheet>
               <SheetTrigger asChild className="lg:hidden">
-                <Button variant="ghost" size="icon" className="text-foreground">
+                <Button variant="ghost" size="icon" className="text-foreground hover:text-primary">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] bg-card border-border">
-                <div className="flex flex-col space-y-6 mt-8">
+              <SheetContent side="right" className="w-[300px] bg-card/95 backdrop-blur-lg border-primary/20 z-[100]">
+                <div className="flex flex-col space-y-6 mt-12">
+                  <div className="flex items-center space-x-3 pb-6 border-b border-primary/20">
+                    <img
+                      src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/auhyf5dz_logo-lion-celetse.jpg"
+                      alt="Lion Céleste"
+                      className="h-10 w-10"
+                    />
+                    <span className="font-serif text-lg font-semibold text-foreground">Lion Céleste</span>
+                  </div>
                   {navLinks.map((link) => (
                     <a
                       key={link.name}
                       href={link.href}
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                      className="text-lg font-medium text-foreground hover:text-primary transition-colors duration-300 py-2"
                     >
                       {link.name}
                     </a>
