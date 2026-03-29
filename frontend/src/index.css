@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,61 +6,61 @@
 
 @layer base {
   :root {
-    /* Modern Light & Gold Luxury Palette */
-    --background: 0 0% 98%;  /* Soft white */
-    --foreground: 220 20% 15%;  /* Soft black */
+    /* Haute Joaillerie Luxury Palette - Royal Sapphire Blue & Gold */
+    --background: 222 47% 8%;  /* Deep sapphire blue-black */
+    --foreground: 0 0% 98%;  /* Platinum white */
     
-    --card: 0 0% 100%;  /* Pure white */
-    --card-foreground: 220 20% 15%;
+    --card: 222 40% 12%;  /* Rich sapphire card */
+    --card-foreground: 0 0% 98%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 15%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 0 0% 98%;
     
-    --primary: 38 92% 50%;  /* Vibrant warm gold #F5A623 */
-    --primary-foreground: 0 0% 100%;
+    --primary: 40 95% 62%;  /* Luxurious warm gold */
+    --primary-foreground: 222 47% 8%;
     
-    --secondary: 200 25% 95%;  /* Soft pastel blue */
-    --secondary-foreground: 220 20% 15%;
+    --secondary: 222 50% 15%;  /* Deep sapphire */
+    --secondary-foreground: 0 0% 98%;
     
-    --muted: 210 15% 92%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 222 30% 20%;
+    --muted-foreground: 0 0% 70%;
     
-    --accent: 340 75% 95%;  /* Soft rose */
-    --accent-foreground: 340 75% 40%;
+    --accent: 40 100% 65%;  /* Bright gold accent */
+    --accent-foreground: 222 47% 8%;
     
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
     
-    --border: 220 13% 88%;  /* Soft gray border */
-    --input: 220 13% 91%;
-    --ring: 38 92% 50%;
+    --border: 40 20% 25%;  /* Subtle gold-tinted border */
+    --input: 222 35% 18%;
+    --ring: 40 95% 62%;
     
-    --radius: 0.75rem;
+    --radius: 0.25rem;
     
-    /* Custom Modern Luxury Tokens */
-    --gold-vibrant: 38 92% 50%;  /* Bright gold */
-    --gold-light: 45 95% 70%;  /* Light gold */
-    --rose-soft: 340 75% 95%;  /* Soft rose */
-    --blue-soft: 200 25% 95%;  /* Soft blue */
-    --cream: 40 25% 97%;  /* Cream white */
-    --gray-modern: 220 15% 50%;  /* Modern gray */
+    /* Luxury Custom Tokens */
+    --gold-metallic: 40 95% 62%;  /* Premium gold */
+    --gold-light: 45 100% 70%;  /* Light gold shimmer */
+    --sapphire-deep: 222 60% 6%;  /* Deepest blue-black */
+    --sapphire-rich: 222 50% 12%;  /* Rich sapphire */
+    --platinum: 0 0% 90%;  /* Platinum shimmer */
+    --black-luxury: 220 20% 10%;  /* Luxury black */
     
-    /* Modern Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(45 95% 60%) 100%);
-    --gradient-soft: linear-gradient(135deg, hsl(340 75% 97%) 0%, hsl(200 25% 97%) 100%);
-    --gradient-modern: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(40 25% 98%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50% / 0.1) 0%, hsl(340 75% 95% / 0.3) 100%);
+    /* Cinematic Gradients */
+    --gradient-sapphire-gold: linear-gradient(135deg, hsl(222 60% 6%) 0%, hsl(222 50% 10%) 50%, hsl(40 95% 62% / 0.08) 100%);
+    --gradient-gold-shimmer: linear-gradient(135deg, hsl(40 95% 62%) 0%, hsl(45 100% 70%) 100%);
+    --gradient-deep: linear-gradient(180deg, hsl(222 60% 6%) 0%, hsl(222 47% 8%) 100%);
+    --gradient-luxury-overlay: linear-gradient(180deg, transparent 0%, hsl(222 60% 6% / 0.8) 100%);
     
-    /* Modern Shadows */
-    --shadow-sm: 0 2px 8px hsl(220 20% 15% / 0.04);
-    --shadow-md: 0 4px 16px hsl(220 20% 15% / 0.08);
-    --shadow-lg: 0 8px 32px hsl(220 20% 15% / 0.12);
-    --shadow-gold: 0 4px 24px hsl(38 92% 50% / 0.2);
-    --shadow-elegant: 0 12px 40px hsl(220 20% 15% / 0.08);
+    /* Premium Shadows */
+    --shadow-sm: 0 2px 12px hsl(222 60% 4% / 0.6);
+    --shadow-md: 0 4px 24px hsl(222 60% 4% / 0.7);
+    --shadow-lg: 0 8px 40px hsl(222 60% 4% / 0.8);
+    --shadow-gold-glow: 0 0 40px hsl(40 95% 62% / 0.25), 0 8px 32px hsl(222 60% 4% / 0.8);
+    --shadow-premium: 0 12px 48px hsl(222 60% 4% / 0.9);
     
-    /* Animations */
-    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-elegant: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Cinematic Animations */
+    --transition-luxury: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -77,92 +77,97 @@
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.01em;
   }
 }
 
 @layer utilities {
-  /* Modern Gradients */
-  .bg-gradient-gold {
-    background: var(--gradient-gold);
+  /* Luxury Gradients */
+  .bg-gradient-sapphire-gold {
+    background: var(--gradient-sapphire-gold);
   }
-  .bg-gradient-soft {
-    background: var(--gradient-soft);
+  .bg-gradient-gold-shimmer {
+    background: var(--gradient-gold-shimmer);
   }
-  .bg-gradient-modern {
-    background: var(--gradient-modern);
-  }
-  .bg-gradient-accent {
-    background: var(--gradient-accent);
+  .bg-gradient-deep {
+    background: var(--gradient-deep);
   }
   
   /* Text Gradients */
   .text-gradient-gold {
-    background: var(--gradient-gold);
+    background: var(--gradient-gold-shimmer);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
-  /* Custom Shadows */
-  .shadow-elegant {
-    box-shadow: var(--shadow-elegant);
+  /* Premium Shadows */
+  .shadow-premium {
+    box-shadow: var(--shadow-premium);
   }
-  .shadow-gold {
-    box-shadow: var(--shadow-gold);
+  .shadow-gold-glow {
+    box-shadow: var(--shadow-gold-glow);
   }
   
-  /* Modern Animation Classes */
-  .transition-elegant {
-    transition: var(--transition-elegant);
+  /* Luxury Transitions */
+  .transition-luxury {
+    transition: var(--transition-luxury);
   }
   .transition-smooth {
     transition: var(--transition-smooth);
   }
   
-  /* Modern Effects */
+  /* Gold Glow Effect */
   .gold-glow {
-    box-shadow: 0 0 24px hsl(var(--primary) / 0.2);
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.3);
   }
   
   .gold-glow-hover:hover {
-    box-shadow: 0 0 32px hsl(var(--primary) / 0.35);
+    box-shadow: 0 0 45px hsl(var(--primary) / 0.5), 0 0 80px hsl(var(--primary) / 0.2);
   }
   
-  /* Glass effect */
-  .glass-effect {
-    backdrop-filter: blur(12px) saturate(180%);
-    background-color: hsl(var(--card) / 0.8);
+  /* Luxury Backdrop */
+  .backdrop-luxury {
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: hsl(var(--background) / 0.85);
   }
   
-  /* Smooth scroll */
-  .scroll-smooth {
-    scroll-behavior: smooth;
+  /* Subtle grain texture */
+  .grain-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
   }
 }
 
-/* Custom Scrollbar */
+/* Luxury Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+  background: hsl(var(--sapphire-deep));
 }
 
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--primary));
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary) / 0.8);
+  background: hsl(var(--accent));
 }
 
 /* Selection */
 ::selection {
-  background-color: hsl(var(--primary) / 0.2);
+  background-color: hsl(var(--primary) / 0.3);
   color: hsl(var(--foreground));
 }

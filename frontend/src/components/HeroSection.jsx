@@ -1,79 +1,103 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from './ui/button';
-import { ArrowDown, Sparkles } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 export const HeroSection = () => {
+  const parallaxRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (parallaxRef.current) {
+        const scrolled = window.scrollY;
+        parallaxRef.current.style.transform = `translateY(${scrolled * 0.4}px)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-modern">
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-accent rounded-full blur-3xl opacity-40 animate-pulse"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-soft rounded-full blur-3xl opacity-30"></div>
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image with Parallax */}
+      <div
+        ref={parallaxRef}
+        className="absolute inset-0 w-full h-[120%] -top-[10%] z-0"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1606623546924-a4f3ae5ea3e8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBqZXdlbHJ5fGVufDB8fHxibGFja3wxNzc0NzY4NTc0fDA&ixlib=rb-4.1.0&q=85)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-sapphire-deep/95 via-background/85 to-background"></div>
+      </div>
+
+      {/* Grain Texture */}
+      <div className="absolute inset-0 grain-texture z-10"></div>
+
+      {/* Subtle Gold Glow */}
+      <div className="absolute inset-0 z-10">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center py-32">
-        <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-accent border border-primary/20">
-            <Sparkles className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-foreground">Moderne Luxus-Schmuckkunst</span>
+      <div className="relative z-20 container mx-auto px-6 text-center">
+        <div className="max-w-5xl mx-auto space-y-10 animate-fade-in-up">
+          {/* Premium Logo */}
+          <div className="flex justify-center mb-8">
+            <img
+              src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/j6me6snb_logo-lion-celetse.jpg"
+              alt="Lion Céleste"
+              className="h-40 w-40 lg:h-48 lg:w-48 animate-scale-in gold-glow"
+            />
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-tight tracking-tight">
+          <h1 className="font-serif text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-semibold text-foreground leading-[0.9] tracking-tight">
             Lion Céleste
           </h1>
 
-          {/* Subheading with gradient */}
-          <p className="text-2xl sm:text-3xl lg:text-4xl font-display text-gradient-gold font-semibold">
-            Innovation. Freiheit. Luxus.
+          {/* Elegant Divider */}
+          <div className="flex items-center justify-center gap-4">
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+            <span className="text-primary text-sm tracking-[0.3em] font-light uppercase">Haute Joaillerie</span>
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+          </div>
+
+          {/* Subheading */}
+          <p className="text-2xl sm:text-3xl lg:text-4xl text-foreground/90 font-serif font-light italic leading-relaxed">
+            Wo himmlische Eleganz auf zeitlosen Luxus trifft
           </p>
 
           {/* Description */}
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Zeitgenössische Schmuckkreationen, die Ihre Persönlichkeit zum Strahlen bringen. Jedes Stück ein Statement.
+          <p className="text-base lg:text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed font-light">
+            Exklusive Schmuckkreationen von Leon Gogoll – handgefertigt mit Leidenschaft, geschaffen für die Ewigkeit.
           </p>
 
-          {/* Creator Credit */}
-          <div className="flex items-center justify-center gap-2 text-primary font-medium">
-            <div className="w-12 h-0.5 bg-gradient-gold rounded-full"></div>
-            <p className="text-base lg:text-lg">Von Leon Gogoll</p>
-            <div className="w-12 h-0.5 bg-gradient-gold rounded-full"></div>
-          </div>
-
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
             <Button
               size="lg"
-              className="bg-gradient-gold hover:shadow-gold text-white font-semibold px-8 py-6 text-base rounded-full transition-all duration-300 hover:scale-105"
+              className="bg-primary hover:bg-accent text-primary-foreground font-light px-10 py-7 text-base tracking-wide transition-all duration-500 hover:scale-105 shadow-gold-glow"
               onClick={() => document.getElementById('signature')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Kollektion entdecken
+              Signature Kollektion
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary font-semibold px-8 py-6 text-base rounded-full transition-all duration-300"
+              className="border border-primary/40 text-foreground hover:bg-primary/10 hover:border-primary font-light px-10 py-7 text-base tracking-wide transition-all duration-500"
               onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Meine Geschichte
+              Die Geschichte
             </Button>
-          </div>
-
-          {/* Logo Display */}
-          <div className="pt-12">
-            <img
-              src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/j6me6snb_logo-lion-celetse.jpg"
-              alt="Lion Céleste Logo"
-              className="h-32 w-32 mx-auto animate-scale-in gold-glow rounded-2xl"
-            />
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="h-6 w-6 text-primary" />
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ChevronDown className="h-8 w-8 text-primary" />
         </div>
       </div>
     </section>
