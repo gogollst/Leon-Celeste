@@ -90,8 +90,7 @@ export const SignaturePieces = () => {
             >
               {/* Image Container */}
               <div 
-                className={`relative overflow-hidden cursor-pointer ${piece.featured ? 'aspect-[16/10]' : 'aspect-square'}`}
-                onClick={() => setSelectedProduct(piece)}
+                className={`relative overflow-hidden ${piece.featured ? 'aspect-[16/10]' : 'aspect-square'}`}
               >
                 <img
                   src={piece.image}
