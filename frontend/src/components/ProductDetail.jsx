@@ -91,13 +91,24 @@ export const ProductDetail = ({ product, open, onClose }) => {
         <div className="grid lg:grid-cols-2 h-full">
           {/* Left Side - Gallery */}
           <div className="relative bg-gradient-deep flex items-center justify-center p-8 lg:p-12">
-            {/* Main Image */}
+            {/* Main Image/Video */}
             <div className="relative w-full h-full flex items-center justify-center">
-              <img
-                src={gallery[currentImageIndex]}
-                alt={product.name}
-                className="max-w-full max-h-full object-contain"
-              />
+              {gallery[currentImageIndex].type === 'video' ? (
+                <video
+                  src={gallery[currentImageIndex].url}
+                  className="max-w-full max-h-full object-contain"
+                  controls
+                  autoPlay
+                  loop
+                  muted
+                />
+              ) : (
+                <img
+                  src={gallery[currentImageIndex].url}
+                  alt={product.name}
+                  className="max-w-full max-h-full object-contain"
+                />
+              )}
               
               {/* Navigation Arrows */}
               {gallery.length > 1 && (
@@ -121,17 +132,30 @@ export const ProductDetail = ({ product, open, onClose }) => {
             {/* Thumbnail Gallery */}
             {gallery.length > 1 && (
               <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
-                {gallery.map((img, index) => (
+                {gallery.map((media, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`h-16 w-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                    className={`h-16 w-16 rounded-lg overflow-hidden border-2 transition-all duration-300 relative ${
                       index === currentImageIndex
                         ? 'border-primary shadow-gold-glow'
                         : 'border-primary/20 hover:border-primary/50'
                     }`}
                   >
-                    <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-cover" />
+                    {media.type === 'video' ? (
+                      <>
+                        <video src={media.url} className="w-full h-full object-cover" muted />
+                        <div className="absolute inset-0 flex items-center justify-center bg-background/30">
+                          <div className="w-6 h-6 rounded-full bg-primary/80 flex items-center justify-center">
+                            <svg className="w-3 h-3 text-white ml-0.5" fill="currentColor" viewBox="0 0 16 16">
+                              <path d="M3 2v12l10-6z"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <img src={media.url} alt={`View ${index + 1}`} className="w-full h-full object-cover" />
+                    )}
                   </button>
                 ))}
               </div>
