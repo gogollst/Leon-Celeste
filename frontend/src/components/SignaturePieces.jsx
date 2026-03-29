@@ -49,42 +49,6 @@ export const SignaturePieces = () => {
       material: 'Vergoldetes Sterling Silber',
       featured: true,
     },
-    {
-      id: 5,
-      name: 'Céleste Éternité',
-      subtitle: 'Royal Sapphire Ring',
-      price: '12.500 €',
-      image: 'https://images.unsplash.com/photo-1606623546924-a4f3ae5ea3e8?w=800',
-      description: 'Ein majestätischer königsblauer Saphir, umgeben von lupenreinen Diamanten in 18K Gold gefasst.',
-      material: '18K Gold & Saphir',
-    },
-    {
-      id: 6,
-      name: 'Lion Majestueux',
-      subtitle: 'Diamond Necklace',
-      price: '18.900 €',
-      image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800',
-      description: 'Elegantes Collier mit handverlesenen Diamanten und der ikonischen Löwen-Signatur.',
-      material: '18K Weißgold & Diamanten',
-    },
-    {
-      id: 7,
-      name: 'Ange de Lumière',
-      subtitle: 'Diamond Earrings',
-      price: '9.800 €',
-      image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800',
-      description: 'Zeitlose Brillant-Ohrringe, die wie himmlische Engelsflügel funkeln.',
-      material: 'Platin & Diamanten',
-    },
-    {
-      id: 8,
-      name: 'Couronne Céleste',
-      subtitle: 'Platinum Bracelet',
-      price: '15.200 €',
-      image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800',
-      description: 'Ein Statement-Armband aus reinstem Platin mit himmlischer Verzierung.',
-      material: 'Platin 950',
-    },
   ];
 
   return (
