@@ -93,7 +93,7 @@ export const SignaturePieces = () => {
               className={`group relative bg-card/30 backdrop-blur-sm border-primary/10 overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-gold-glow animate-fade-in-up flex flex-col cursor-pointer ${
                 piece.featured ? 'lg:col-span-2 lg:row-span-1' : ''
               }`}
-              style={{ animationDelay: `${index * 150}ms` }}
+              style={{ animationDelay: `${index * 100}ms` }}
               onMouseEnter={() => setHoveredId(piece.id)}
               onMouseLeave={() => setHoveredId(null)}
               onClick={() => setSelectedProduct(piece)}
