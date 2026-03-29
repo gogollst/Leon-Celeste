@@ -167,6 +167,13 @@ export const SignaturePieces = () => {
           </Button>
         </div>
       </div>
+
+      {/* Product Detail Modal */}
+      <ProductDetail
+        product={selectedProduct}
+        open={!!selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
     </section>
   );
 };
