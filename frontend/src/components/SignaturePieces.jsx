@@ -41,6 +41,16 @@ export const SignaturePieces = () => {
     },
     {
       id: 4,
+      name: 'Bracelet de l\'infini',
+      subtitle: 'The Infinity Bracelet',
+      price: '14.800 €',
+      image: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/w673ehs9_PXL_20260329_092604344.MP.jpg',
+      description: 'Das Unendlichkeitsarmband – ein elegantes Statement aus vergoldetem Sterling Silber. Symbolisiert ewige Verbindung und zeitlose Eleganz. "Good Luck - Wherever you go, may luck and love follow."',
+      material: 'Vergoldetes Sterling Silber',
+      featured: true,
+    },
+    {
+      id: 5,
       name: 'Céleste Éternité',
       subtitle: 'Royal Sapphire Ring',
       price: '12.500 €',
@@ -49,7 +59,7 @@ export const SignaturePieces = () => {
       material: '18K Gold & Saphir',
     },
     {
-      id: 5,
+      id: 6,
       name: 'Lion Majestueux',
       subtitle: 'Diamond Necklace',
       price: '18.900 €',
@@ -58,7 +68,7 @@ export const SignaturePieces = () => {
       material: '18K Weißgold & Diamanten',
     },
     {
-      id: 6,
+      id: 7,
       name: 'Ange de Lumière',
       subtitle: 'Diamond Earrings',
       price: '9.800 €',
@@ -67,7 +77,7 @@ export const SignaturePieces = () => {
       material: 'Platin & Diamanten',
     },
     {
-      id: 7,
+      id: 8,
       name: 'Couronne Céleste',
       subtitle: 'Platinum Bracelet',
       price: '15.200 €',
