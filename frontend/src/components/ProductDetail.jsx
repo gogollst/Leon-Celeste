@@ -67,7 +67,7 @@ export const ProductDetail = ({ product, open, onClose }) => {
           url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/lm14ctz1_grok-video-9cab6c3b-8c16-4e1e-a05a-61b7435cf4e7.mp4'
         },
       ],
-      4: [ // Bracelet de l'infini - Das Unendlichkeitsarmband
+      4: [ // Bracelet de l'infini
         {
           type: 'image',
           url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/w673ehs9_PXL_20260329_092604344.MP.jpg'
@@ -84,31 +84,6 @@ export const ProductDetail = ({ product, open, onClose }) => {
           type: 'video',
           url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/tlyjwren_grok-video-47115dfc-0120-4d5c-b33c-9853915ae336.mp4'
         },
-      ],
-      5: [ // Céleste Éternité
-        { type: 'image', url: 'https://images.unsplash.com/photo-1606623546924-a4f3ae5ea3e8?w=800' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800' },
-      ],
-      5: [ // Céleste Éternité
-        { type: 'image', url: 'https://images.unsplash.com/photo-1606623546924-a4f3ae5ea3e8?w=800' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800' },
-      ],
-      6: [ // Lion Majestueux
-        { type: 'image', url: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1616837874254-8d5aaa63e273?w=800' },
-      ],
-      7: [ // Ange de Lumière
-        { type: 'image', url: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1630019329803-9da9c8c8d3e5?w=800' },
-      ],
-      8: [ // Couronne Céleste
-        { type: 'image', url: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800' },
       ],
     };
     return galleries[productId] || [{ type: 'image', url: product.image }];
