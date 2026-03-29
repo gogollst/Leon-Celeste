@@ -14,7 +14,7 @@ export const BrandStory = () => {
           <div className="relative animate-fade-in">
             <div className="relative overflow-hidden shadow-premium">
               <img
-                src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/22ojlxkv_grok-image-dcd140ce-1db2-431d-8de8-ef2b1bc8d013.png"
+                src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/fwzkih1v_grok-image-919b28fd-cce9-488b-b466-c587160b23c6.png"
                 alt="Leon Gogoll - Designer & Gründer"
                 className="w-full h-[600px] object-cover"
               />
