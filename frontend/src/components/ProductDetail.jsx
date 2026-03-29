@@ -13,33 +13,46 @@ export const ProductDetail = ({ product, open, onClose }) => {
   // Gallery images - für jedes Produkt verschiedene Ansichten
   const getGalleryImages = (productId) => {
     const galleries = {
-      1: [ // Les Ailes d'Ange
-        'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/l2elv9we_PXL_20260329_064714711_exported_1774766860186.jpg',
-        'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800',
-        'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800',
+      1: [ // Les Ailes d'Ange - mit neuen Bildern und Video
+        {
+          type: 'image',
+          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/l2elv9we_PXL_20260329_064714711_exported_1774766860186.jpg'
+        },
+        {
+          type: 'image',
+          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/mmp0sj52_grok-image-11112b3d-7f26-4eba-887c-22c8593c677e.png'
+        },
+        {
+          type: 'image',
+          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/d722ecdp_grok-image-f13ba83c-8f0a-45fc-bae0-dd0119dcb21c.png'
+        },
+        {
+          type: 'video',
+          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/o15ag1dm_grok-video-587b68e7-e62f-4025-8e0a-fda8dd230bc7.mp4'
+        },
       ],
       2: [ // Céleste Éternité
-        'https://images.unsplash.com/photo-1606623546924-a4f3ae5ea3e8?w=800',
-        'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800',
-        'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800',
+        { type: 'image', url: 'https://images.unsplash.com/photo-1606623546924-a4f3ae5ea3e8?w=800' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800' },
       ],
       3: [ // Lion Majestueux
-        'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800',
-        'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800',
-        'https://images.unsplash.com/photo-1616837874254-8d5aaa63e273?w=800',
+        { type: 'image', url: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1616837874254-8d5aaa63e273?w=800' },
       ],
       4: [ // Ange de Lumière
-        'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800',
-        'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800',
-        'https://images.unsplash.com/photo-1630019329803-9da9c8c8d3e5?w=800',
+        { type: 'image', url: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1630019329803-9da9c8c8d3e5?w=800' },
       ],
       5: [ // Couronne Céleste
-        'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800',
-        'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800',
-        'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800',
+        { type: 'image', url: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800' },
       ],
     };
-    return galleries[productId] || [product.image];
+    return galleries[productId] || [{ type: 'image', url: product.image }];
   };
 
   const gallery = getGalleryImages(product.id);
