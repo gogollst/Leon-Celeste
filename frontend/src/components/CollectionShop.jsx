@@ -175,17 +175,6 @@ export const CollectionShop = () => {
             </Card>
           ))}
         </div>
-
-        {/* Load More */}
-        <div className="text-center mt-12">
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-2 border-primary/50 text-foreground hover:bg-primary/10 hover:border-primary font-medium px-10 py-6 text-lg rounded-lg transition-all duration-500"
-          >
-            Mehr laden
-          </Button>
-        </div>
       </div>
     </section>
   );
