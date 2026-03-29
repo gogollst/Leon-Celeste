@@ -49,7 +49,7 @@ export const ProductDetail = ({ product, open, onClose }) => {
           url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/947jy70c_grok-video-306cdc1d-2f2d-4b2b-ac60-a73276083d82.mp4'
         },
       ],
-      3: [ // Anneau du démon - Der Dämonenring
+      3: [ // Anneau du démon
         {
           type: 'image',
           url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/ol249chw_PXL_20260329_092616320.MP.jpg'
