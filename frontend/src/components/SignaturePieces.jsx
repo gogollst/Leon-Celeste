@@ -88,7 +88,10 @@ export const SignaturePieces = () => {
               onMouseLeave={() => setHoveredId(null)}
             >
               {/* Image Container */}
-              <div className={`relative overflow-hidden ${piece.featured ? 'aspect-[16/10]' : 'aspect-square'}`}>
+              <div 
+                className={`relative overflow-hidden cursor-pointer ${piece.featured ? 'aspect-[16/10]' : 'aspect-square'}`}
+                onClick={() => setSelectedProduct(piece)}
+              >
                 <img
                   src={piece.image}
                   alt={piece.name}
@@ -114,6 +117,10 @@ export const SignaturePieces = () => {
                     size="icon"
                     variant="secondary"
                     className="h-12 w-12 rounded-full bg-card/90 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedProduct(piece);
+                    }}
                   >
                     <Eye className="h-5 w-5" />
                   </Button>
@@ -121,6 +128,7 @@ export const SignaturePieces = () => {
                     size="icon"
                     variant="secondary"
                     className="h-12 w-12 rounded-full bg-card/90 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <Heart className="h-5 w-5" />
                   </Button>
