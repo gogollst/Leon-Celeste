@@ -13,7 +13,7 @@ export const ProductDetail = ({ product, open, onClose }) => {
   // Gallery images - für jedes Produkt verschiedene Ansichten
   const getGalleryImages = (productId) => {
     const galleries = {
-      1: [ // Les Ailes d'Ange - mit neuen Bildern und Video
+      1: [ // Les Ailes d'Ange
         {
           type: 'image',
           url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/l2elv9we_PXL_20260329_064714711_exported_1774766860186.jpg'
