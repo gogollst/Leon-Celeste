@@ -14,8 +14,8 @@ export const BrandStory = () => {
           <div className="relative animate-fade-in">
             <div className="relative overflow-hidden shadow-premium">
               <img
-                src="https://images.unsplash.com/photo-1527963841590-34ea3172750d?w=800"
-                alt="Leon Gogoll - Designer"
+                src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/22ojlxkv_grok-image-dcd140ce-1db2-431d-8de8-ef2b1bc8d013.png"
+                alt="Leon Gogoll - Designer & Gründer"
                 className="w-full h-[600px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
