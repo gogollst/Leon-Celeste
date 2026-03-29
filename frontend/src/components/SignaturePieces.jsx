@@ -80,12 +80,13 @@ export const SignaturePieces = () => {
           {signaturePieces.map((piece, index) => (
             <Card
               key={piece.id}
-              className={`group relative bg-card/30 backdrop-blur-sm border-primary/10 overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-gold-glow animate-fade-in-up flex flex-col ${
+              className={`group relative bg-card/30 backdrop-blur-sm border-primary/10 overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-gold-glow animate-fade-in-up flex flex-col cursor-pointer ${
                 piece.featured ? 'lg:col-span-2 lg:row-span-1' : ''
               }`}
               style={{ animationDelay: `${index * 150}ms` }}
               onMouseEnter={() => setHoveredId(piece.id)}
               onMouseLeave={() => setHoveredId(null)}
+              onClick={() => setSelectedProduct(piece)}
             >
               {/* Image Container */}
               <div 
