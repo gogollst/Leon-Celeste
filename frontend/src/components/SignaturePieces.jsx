@@ -31,6 +31,16 @@ export const SignaturePieces = () => {
     },
     {
       id: 3,
+      name: 'Anneau du démon',
+      subtitle: 'The Demon Ring',
+      price: '19.500 €',
+      image: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/ol249chw_PXL_20260329_092616320.MP.jpg',
+      description: 'Der Dämonenring – ein kraftvolles Statement aus geschwärztem Sterling Silber. Die dunkle Seite des Luxus, wo Eleganz auf mystische Macht trifft.',
+      material: 'Geschwärztes Sterling Silber',
+      featured: true,
+    },
+    {
+      id: 4,
       name: 'Céleste Éternité',
       subtitle: 'Royal Sapphire Ring',
       price: '12.500 €',
@@ -39,7 +49,7 @@ export const SignaturePieces = () => {
       material: '18K Gold & Saphir',
     },
     {
-      id: 4,
+      id: 5,
       name: 'Lion Majestueux',
       subtitle: 'Diamond Necklace',
       price: '18.900 €',
@@ -48,7 +58,7 @@ export const SignaturePieces = () => {
       material: '18K Weißgold & Diamanten',
     },
     {
-      id: 5,
+      id: 6,
       name: 'Ange de Lumière',
       subtitle: 'Diamond Earrings',
       price: '9.800 €',
@@ -57,7 +67,7 @@ export const SignaturePieces = () => {
       material: 'Platin & Diamanten',
     },
     {
-      id: 6,
+      id: 7,
       name: 'Couronne Céleste',
       subtitle: 'Platinum Bracelet',
       price: '15.200 €',
