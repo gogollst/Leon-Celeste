@@ -9,6 +9,15 @@ export const SignaturePieces = () => {
   const signaturePieces = [
     {
       id: 1,
+      name: 'Les Ailes d\'Ange',
+      subtitle: 'Signature Angel Ring',
+      price: '22.500 €',
+      image: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/l2elv9we_PXL_20260329_064714711_exported_1774766860186.jpg',
+      description: 'Das exklusive Meisterstück – handgefertigte Engelsflügel aus Sterling Silber mit 18K Gold-Akzent. Ein Symbol für Schutz und himmlische Eleganz.',
+      featured: true,
+    },
+    {
+      id: 2,
       name: 'Céleste Éternité',
       subtitle: 'Royal Sapphire Ring',
       price: '12.500 €',
@@ -16,7 +25,7 @@ export const SignaturePieces = () => {
       description: 'Ein majestätischer königsblauer Saphir, umgeben von lupenreinen Diamanten in 18K Gold gefasst.',
     },
     {
-      id: 2,
+      id: 3,
       name: 'Lion Majestueux',
       subtitle: 'Diamond Necklace',
       price: '18.900 €',
@@ -24,7 +33,7 @@ export const SignaturePieces = () => {
       description: 'Elegantes Collier mit handverlesenen Diamanten und der ikonischen Löwen-Signatur.',
     },
     {
-      id: 3,
+      id: 4,
       name: 'Ange de Lumière',
       subtitle: 'Diamond Earrings',
       price: '9.800 €',
@@ -32,7 +41,7 @@ export const SignaturePieces = () => {
       description: 'Zeitlose Brillant-Ohrringe, die wie himmlische Engelsflügel funkeln.',
     },
     {
-      id: 4,
+      id: 5,
       name: 'Couronne Céleste',
       subtitle: 'Platinum Bracelet',
       price: '15.200 €',
