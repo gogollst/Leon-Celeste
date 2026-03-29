@@ -31,22 +31,40 @@ export const ProductDetail = ({ product, open, onClose }) => {
           url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/o15ag1dm_grok-video-587b68e7-e62f-4025-8e0a-fda8dd230bc7.mp4'
         },
       ],
-      2: [ // Céleste Éternité
+      2: [ // Collier Infini cœur - Neues Produkt mit 3 Bildern und Video
+        {
+          type: 'image',
+          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/my3vvlui_PXL_20260329_092814300.MP.jpg'
+        },
+        {
+          type: 'image',
+          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/7fiemkw2_grok-image-09e98175-2ac8-4850-a8ad-026731ab11ab.png'
+        },
+        {
+          type: 'image',
+          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/kqhc9oe1_grok-image-306cdc1d-2f2d-4b2b-ac60-a73276083d82.png'
+        },
+        {
+          type: 'video',
+          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/947jy70c_grok-video-306cdc1d-2f2d-4b2b-ac60-a73276083d82.mp4'
+        },
+      ],
+      3: [ // Céleste Éternité
         { type: 'image', url: 'https://images.unsplash.com/photo-1606623546924-a4f3ae5ea3e8?w=800' },
         { type: 'image', url: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800' },
         { type: 'image', url: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800' },
       ],
-      3: [ // Lion Majestueux
+      4: [ // Lion Majestueux
         { type: 'image', url: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800' },
         { type: 'image', url: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800' },
         { type: 'image', url: 'https://images.unsplash.com/photo-1616837874254-8d5aaa63e273?w=800' },
       ],
-      4: [ // Ange de Lumière
+      5: [ // Ange de Lumière
         { type: 'image', url: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800' },
         { type: 'image', url: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800' },
         { type: 'image', url: 'https://images.unsplash.com/photo-1630019329803-9da9c8c8d3e5?w=800' },
       ],
-      5: [ // Couronne Céleste
+      6: [ // Couronne Céleste
         { type: 'image', url: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800' },
         { type: 'image', url: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800' },
         { type: 'image', url: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800' },
