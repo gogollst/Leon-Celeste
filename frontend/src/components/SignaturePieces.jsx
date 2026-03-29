@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Eye, Heart } from 'lucide-react';
+import { ProductDetail } from './ProductDetail';
 
 export const SignaturePieces = () => {
   const [hoveredId, setHoveredId] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const signaturePieces = [
     {
@@ -14,6 +16,7 @@ export const SignaturePieces = () => {
       price: '22.500 €',
       image: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/l2elv9we_PXL_20260329_064714711_exported_1774766860186.jpg',
       description: 'Das exklusive Meisterstück – handgefertigte Engelsflügel aus Sterling Silber mit 18K Gold-Akzent. Ein Symbol für Schutz und himmlische Eleganz.',
+      material: 'Sterling Silber & 18K Gold',
       featured: true,
     },
     {
@@ -23,6 +26,7 @@ export const SignaturePieces = () => {
       price: '12.500 €',
       image: 'https://images.unsplash.com/photo-1606623546924-a4f3ae5ea3e8?w=800',
       description: 'Ein majestätischer königsblauer Saphir, umgeben von lupenreinen Diamanten in 18K Gold gefasst.',
+      material: '18K Gold & Saphir',
     },
     {
       id: 3,
@@ -31,6 +35,7 @@ export const SignaturePieces = () => {
       price: '18.900 €',
       image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800',
       description: 'Elegantes Collier mit handverlesenen Diamanten und der ikonischen Löwen-Signatur.',
+      material: '18K Weißgold & Diamanten',
     },
     {
       id: 4,
@@ -39,6 +44,7 @@ export const SignaturePieces = () => {
       price: '9.800 €',
       image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800',
       description: 'Zeitlose Brillant-Ohrringe, die wie himmlische Engelsflügel funkeln.',
+      material: 'Platin & Diamanten',
     },
     {
       id: 5,
@@ -47,6 +53,7 @@ export const SignaturePieces = () => {
       price: '15.200 €',
       image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800',
       description: 'Ein Statement-Armband aus reinstem Platin mit himmlischer Verzierung.',
+      material: 'Platin 950',
     },
   ];
 
