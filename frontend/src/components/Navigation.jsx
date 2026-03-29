@@ -35,7 +35,7 @@ export const Navigation = () => {
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-3 group">
             <img
-              src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/auhyf5dz_logo-lion-celetse.jpg"
+              src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/w7fhwgh8_TDNTO.jpg"
               alt="Lion Céleste Logo"
               className="h-12 w-12 lg:h-14 lg:w-14 transition-transform duration-500 group-hover:scale-110"
             />
