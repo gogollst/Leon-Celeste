@@ -73,13 +73,15 @@ export const SignaturePieces = () => {
           {signaturePieces.map((piece, index) => (
             <Card
               key={piece.id}
-              className="group relative bg-card/30 backdrop-blur-sm border-primary/10 overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-gold-glow animate-fade-in-up flex flex-col"
+              className={`group relative bg-card/30 backdrop-blur-sm border-primary/10 overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-gold-glow animate-fade-in-up flex flex-col ${
+                piece.featured ? 'lg:col-span-2 lg:row-span-1' : ''
+              }`}
               style={{ animationDelay: `${index * 150}ms` }}
               onMouseEnter={() => setHoveredId(piece.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
               {/* Image Container */}
-              <div className="relative overflow-hidden aspect-square">
+              <div className={`relative overflow-hidden ${piece.featured ? 'aspect-[16/10]' : 'aspect-square'}`}>
                 <img
                   src={piece.image}
                   alt={piece.name}
@@ -87,6 +89,13 @@ export const SignaturePieces = () => {
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
+                
+                {/* Featured Badge */}
+                {piece.featured && (
+                  <div className="absolute top-6 left-6 px-4 py-2 bg-gradient-gold-shimmer text-primary-foreground text-xs font-light tracking-widest uppercase shadow-gold-glow">
+                    Top-Modell
+                  </div>
+                )}
                 
                 {/* Hover Actions */}
                 <div
@@ -115,11 +124,11 @@ export const SignaturePieces = () => {
               <div className="p-8 space-y-4 flex flex-col flex-grow">
                 <div className="flex-grow">
                   <p className="text-xs text-primary font-light tracking-widest uppercase">{piece.subtitle}</p>
-                  <h3 className="font-serif text-2xl font-semibold text-foreground mt-2">{piece.name}</h3>
+                  <h3 className={`font-serif font-semibold text-foreground mt-2 ${piece.featured ? 'text-3xl' : 'text-2xl'}`}>{piece.name}</h3>
                   <p className="text-sm text-foreground/60 mt-3 leading-relaxed font-light">{piece.description}</p>
                 </div>
                 <div className="flex items-center justify-between pt-6 border-t border-primary/20 mt-auto">
-                  <span className="font-serif text-2xl font-semibold text-primary">{piece.price}</span>
+                  <span className={`font-serif font-semibold text-primary ${piece.featured ? 'text-3xl' : 'text-2xl'}`}>{piece.price}</span>
                   <Button
                     size="sm"
                     variant="ghost"
