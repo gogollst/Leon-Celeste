@@ -24,12 +24,12 @@ export const HeroSection = () => {
         ref={parallaxRef}
         className="absolute inset-0 w-full h-[120%] -top-[10%] z-0"
         style={{
-          backgroundImage: 'url(https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/9qgetzc4_image.png)',
+          backgroundImage: 'url(https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/v26xr551_leon-hero-section.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-sapphire-deep/40 via-background/60 to-background"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-sapphire-deep/30 via-background/50 to-background"></div>
       </div>
 
       {/* Grain Texture */}
