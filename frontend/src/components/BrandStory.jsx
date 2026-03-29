@@ -23,7 +23,7 @@ export const BrandStory = () => {
             {/* Floating Logo */}
             <div className="absolute -bottom-8 -right-8 bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-gold border border-primary/20">
               <img
-                src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/w7fhwgh8_TDNTO.jpg"
+                src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/j6me6snb_logo-lion-celetse.jpg"
                 alt="Lion Céleste Logo"
                 className="h-20 w-20"
               />

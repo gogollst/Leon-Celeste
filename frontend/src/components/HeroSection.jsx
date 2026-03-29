@@ -44,7 +44,7 @@ export const HeroSection = () => {
           {/* Premium Logo */}
           <div className="flex justify-center mb-8">
             <img
-              src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/w7fhwgh8_TDNTO.jpg"
+              src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/j6me6snb_logo-lion-celetse.jpg"
               alt="Lion Céleste Premium Logo"
               className="h-32 w-32 lg:h-40 lg:w-40 animate-scale-in gold-glow"
             />

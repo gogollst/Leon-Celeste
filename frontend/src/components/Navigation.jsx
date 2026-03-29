@@ -35,7 +35,7 @@ export const Navigation = () => {
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-3 group">
             <img
-              src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/w7fhwgh8_TDNTO.jpg"
+              src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/j6me6snb_logo-lion-celetse.jpg"
               alt="Lion Céleste Logo"
               className="h-12 w-12 lg:h-14 lg:w-14 transition-transform duration-500 group-hover:scale-110"
             />
@@ -98,7 +98,7 @@ export const Navigation = () => {
                 <div className="flex flex-col space-y-6 mt-12">
                   <div className="flex items-center space-x-3 pb-6 border-b border-primary/20">
                     <img
-                      src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/w7fhwgh8_TDNTO.jpg"
+                      src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/j6me6snb_logo-lion-celetse.jpg"
                       alt="Lion Céleste"
                       className="h-10 w-10"
                     />
