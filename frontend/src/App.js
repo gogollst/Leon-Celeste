@@ -7,7 +7,7 @@ import { SignaturePieces } from './components/SignaturePieces';
 import { CollectionShop } from './components/CollectionShop';
 import { WhyLionCeleste } from './components/WhyLionCeleste';
 import { Testimonials } from './components/Testimonials';
-import { Newsletter } from './components/Newsletter';
+import { ConsultationSection } from './components/ConsultationSection';
 import { Footer } from './components/Footer';
 import { Cart } from './components/Cart';
 import { Toaster } from './components/ui/sonner';
@@ -25,7 +25,7 @@ function App() {
           <CollectionShop />
           <WhyLionCeleste />
           <Testimonials />
-          <Newsletter />
+          <ConsultationSection />
         </main>
         <Footer />
         <Cart />
