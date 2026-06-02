@@ -67,7 +67,7 @@ export const WhyLionCeleste = () => {
             const IconComponent = value.icon;
             return (
               <div
-                key={index}
+                key={value.title}
                 className="group relative p-8 rounded-lg bg-card/30 backdrop-blur-sm border border-primary/20 hover:border-primary/50 transition-all duration-500 hover:shadow-gold animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >

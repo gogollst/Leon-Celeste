@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+} from 'react';
 
 const CartContext = createContext(null);
 
@@ -23,6 +30,7 @@ export const CartProvider = ({ children }) => {
 
   const [cartOpen, setCartOpen] = useState(false);
 
+  // localStorage is a stable browser global — no need to include it in deps
   useEffect(() => {
     localStorage.setItem('lionceleste_cart', JSON.stringify(cartItems));
   }, [cartItems]);
@@ -31,7 +39,7 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('lionceleste_wishlist', JSON.stringify(wishlist));
   }, [wishlist]);
 
-  const addToCart = (product) => {
+  const addToCart = useCallback((product) => {
     setCartItems((prev) => {
       const exists = prev.find((item) => item.id === product.id);
       if (exists) {
@@ -41,44 +49,70 @@ export const CartProvider = ({ children }) => {
       }
       return [...prev, { ...product, quantity: 1 }];
     });
-  };
+  }, []);
 
-  const removeFromCart = (productId) => {
+  const removeFromCart = useCallback((productId) => {
     setCartItems((prev) => prev.filter((item) => item.id !== productId));
-  };
+  }, []);
 
-  const clearCart = () => setCartItems([]);
+  const clearCart = useCallback(() => setCartItems([]), []);
 
-  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const cartCount = useMemo(
+    () => cartItems.reduce((sum, item) => sum + item.quantity, 0),
+    [cartItems]
+  );
 
-  const cartTotal = cartItems
-    .reduce((sum, item) => sum + item.priceValue * item.quantity, 0)
-    .toLocaleString('de-DE');
+  const cartTotal = useMemo(
+    () =>
+      cartItems
+        .reduce((sum, item) => sum + item.priceValue * item.quantity, 0)
+        .toLocaleString('de-DE'),
+    [cartItems]
+  );
 
-  const toggleWishlist = (productId) => {
+  const toggleWishlist = useCallback((productId) => {
     setWishlist((prev) =>
-      prev.includes(productId) ? prev.filter((id) => id !== productId) : [...prev, productId]
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId]
     );
-  };
+  }, []);
 
-  const isWishlisted = (productId) => wishlist.includes(productId);
+  const isWishlisted = useCallback(
+    (productId) => wishlist.includes(productId),
+    [wishlist]
+  );
+
+  const contextValue = useMemo(
+    () => ({
+      cartItems,
+      cartCount,
+      cartTotal,
+      cartOpen,
+      setCartOpen,
+      addToCart,
+      removeFromCart,
+      clearCart,
+      wishlist,
+      toggleWishlist,
+      isWishlisted,
+    }),
+    [
+      cartItems,
+      cartCount,
+      cartTotal,
+      cartOpen,
+      addToCart,
+      removeFromCart,
+      clearCart,
+      wishlist,
+      toggleWishlist,
+      isWishlisted,
+    ]
+  );
 
   return (
-    <CartContext.Provider
-      value={{
-        cartItems,
-        cartCount,
-        cartTotal,
-        cartOpen,
-        setCartOpen,
-        addToCart,
-        removeFromCart,
-        clearCart,
-        wishlist,
-        toggleWishlist,
-        isWishlisted,
-      }}
-    >
+    <CartContext.Provider value={contextValue}>
       {children}
     </CartContext.Provider>
   );

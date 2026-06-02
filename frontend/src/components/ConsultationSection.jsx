@@ -37,8 +37,11 @@ export const ConsultationSection = () => {
   const sizeLabel = selectedProduct?.category === 'bracelets' ? 'Armbandlänge' : 'Ringgröße';
 
   const handleChange = (field, value) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
-    if (field === 'product') setForm((prev) => ({ ...prev, [field]: value, size: '' }));
+    if (field === 'product') {
+      setForm((prev) => ({ ...prev, product: value, size: '' }));
+    } else {
+      setForm((prev) => ({ ...prev, [field]: value }));
+    }
   };
 
   const handleSubmit = (e) => {

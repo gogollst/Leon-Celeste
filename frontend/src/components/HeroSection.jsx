@@ -1,21 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { Button } from './ui/button';
 import { ChevronDown } from 'lucide-react';
 
 export const HeroSection = () => {
   const parallaxRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (parallaxRef.current) {
-        const scrolled = window.scrollY;
-        parallaxRef.current.style.transform = `translateY(${scrolled * 0.4}px)`;
-      }
-    };
+  const handleScroll = useCallback(() => {
+    if (parallaxRef.current) {
+      parallaxRef.current.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+    }
+  }, []);
 
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">

@@ -64,7 +64,7 @@ export const Testimonials = () => {
               {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-primary fill-primary" />
+                  <Star key={`${testimonial.id}-star-${i}`} className="h-5 w-5 text-primary fill-primary" />
                 ))}
               </div>
 

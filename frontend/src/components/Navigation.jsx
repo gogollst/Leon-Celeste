@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { Menu, Search, ShoppingBag, User, Heart } from 'lucide-react';
@@ -8,13 +8,14 @@ export const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const { cartCount, setCartOpen, wishlist } = useCart();
 
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 50);
+  }, []);
+
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const navLinks = [
     { name: 'Start', href: '#home' },

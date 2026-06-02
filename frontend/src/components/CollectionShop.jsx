@@ -130,7 +130,7 @@ export const CollectionShop = () => {
                 <div className="flex-grow">
                   <div className="flex items-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-primary fill-primary" />
+                      <Star key={`${product.id}-star-${i}`} className="h-4 w-4 text-primary fill-primary" />
                     ))}
                   </div>
                   <h3 className="font-serif text-xl font-semibold text-foreground">{product.name}</h3>
