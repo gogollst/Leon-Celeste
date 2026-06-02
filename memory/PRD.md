@@ -72,7 +72,15 @@ Each has: 3 images + 1 video in gallery.
 - [x] **Zoom feature** → Click image in ProductDetail to zoom (CSS scale)
 - [x] **Cart integration** → "In den Warenkorb" from both CollectionShop and ProductDetail
 
-### Phase 3 – Consultation & 360° Viewer (Feb 2026)
+### Phase 4 – Code Quality (Feb 2026)
+- [x] **use-toast.js** – `useEffect` deps korrigiert (`[state]` → `[]` verhindert doppelte Listener-Registrierung)
+- [x] **CartContext.jsx** – `useMemo`/`useCallback` für alle Funktionen + Context-Value, verhindert unnötige Re-Renders
+- [x] **Navigation.jsx + HeroSection.jsx** – `handleScroll` via `useCallback` + korrekte `useEffect` Dependencies
+- [x] **ProductDetail.jsx → ProductDetail + ProductGallery** – Aufgeteilt: ~354 → ~120 Zeilen. Cyclomatic Complexity drastisch reduziert
+- [x] **Cart.jsx** – Sub-Komponenten `CartItem`, `EmptyCart`, `OrderConfirmation`, `CartSummary`; nested Ternary durch `renderContent()` ersetzt
+- [x] **ConsultationSection.jsx** – `handleChange` auf einzelnen `setState`-Call reduziert
+- [x] **Array-Index-Keys** – Alle `key={index}` durch stabile eindeutige Keys ersetzt (WhyLionCeleste, Testimonials, CollectionShop, ProductDetail)
+- [x] **server.py** – Return-Typ-Annotationen für alle API-Endpunkte ergänzt
 - [x] **ConsultationSection** → Full booking form (id="contact", nav Kontakt link works)
   - Fields: Vorname, Nachname, E-Mail, Telefon, Schmuckstück, Ringgröße/Armbandlänge (conditional), Nachricht
   - Loading state, success screen with customer name + product summary, reset flow
