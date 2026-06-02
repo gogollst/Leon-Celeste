@@ -72,6 +72,14 @@ Each has: 3 images + 1 video in gallery.
 - [x] **Zoom feature** → Click image in ProductDetail to zoom (CSS scale)
 - [x] **Cart integration** → "In den Warenkorb" from both CollectionShop and ProductDetail
 
+### Phase 3 – Consultation & 360° Viewer (Feb 2026)
+- [x] **ConsultationSection** → Full booking form (id="contact", nav Kontakt link works)
+  - Fields: Vorname, Nachname, E-Mail, Telefon, Schmuckstück, Ringgröße/Armbandlänge (conditional), Nachricht
+  - Loading state, success screen with customer name + product summary, reset flow
+- [x] **360° Viewer** in ProductDetail → CSS 3D perspective tilt (mouse) + drag-to-rotate (cycles gallery images)
+  - Toggle button activates/deactivates mode, nav arrows hidden in 360° mode
+  - "Persönliche Beratung vereinbaren" button scrolls to #contact
+
 ---
 
 ## Prioritized Backlog
@@ -80,14 +88,12 @@ Each has: 3 images + 1 video in gallery.
 - None currently blocking
 
 ### P1 – High Priority
-- [ ] Real backend integration for contact/inquiry form
-- [ ] Actual checkout form with fields (name, email, address, ring size)
-- [ ] Real contact page / consultation booking system
+- [ ] Real backend integration (email delivery on form submit – e.g. SendGrid or Resend)
+- [ ] Checkout form with address + real order flow
 
-### P2 – Medium Priority  
-- [ ] 360° product viewer (WebGL or CSS 3D rotation)
+### P2 – Medium Priority
 - [ ] "Neue Kollektion" page or Instagram feed integration
-- [ ] Email notification mock on "Jetzt anfragen"
+- [ ] Product size guide / visual ring sizer
 - [ ] Product size selector for rings/bracelets
 
 ### P3 – Future / Backlog
