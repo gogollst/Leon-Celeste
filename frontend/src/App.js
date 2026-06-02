@@ -1,4 +1,5 @@
 import React from 'react';
+import { CartProvider } from './context/CartContext';
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
 import { BrandStory } from './components/BrandStory';
@@ -8,25 +9,29 @@ import { WhyLionCeleste } from './components/WhyLionCeleste';
 import { Testimonials } from './components/Testimonials';
 import { Newsletter } from './components/Newsletter';
 import { Footer } from './components/Footer';
+import { Cart } from './components/Cart';
 import { Toaster } from './components/ui/sonner';
 import './index.css';
 
 function App() {
   return (
-    <div className="min-h-screen bg-background scroll-smooth">
-      <Navigation />
-      <main>
-        <HeroSection />
-        <BrandStory />
-        <SignaturePieces />
-        <CollectionShop />
-        <WhyLionCeleste />
-        <Testimonials />
-        <Newsletter />
-      </main>
-      <Footer />
-      <Toaster position="top-center" theme="dark" />
-    </div>
+    <CartProvider>
+      <div className="min-h-screen bg-background scroll-smooth">
+        <Navigation />
+        <main>
+          <HeroSection />
+          <BrandStory />
+          <SignaturePieces />
+          <CollectionShop />
+          <WhyLionCeleste />
+          <Testimonials />
+          <Newsletter />
+        </main>
+        <Footer />
+        <Cart />
+        <Toaster position="top-center" theme="dark" />
+      </div>
+    </CartProvider>
   );
 }
 

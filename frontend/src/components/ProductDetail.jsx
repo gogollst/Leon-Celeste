@@ -2,121 +2,58 @@ import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogTitle } from './ui/dialog';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
-import { X, ChevronLeft, ChevronRight, Heart, ShoppingBag, Share2, Sparkles } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Heart, ShoppingBag, Share2, Sparkles, ZoomIn } from 'lucide-react';
 import { toast } from 'sonner';
+import { PRODUCTS } from '../data/products';
+import { useCart } from '../context/CartContext';
 
 export const ProductDetail = ({ product, open, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [zoomed, setZoomed] = useState(false);
+  const { addToCart, setCartOpen, toggleWishlist, isWishlisted } = useCart();
 
   if (!product) return null;
 
-  // Gallery images - für jedes Produkt verschiedene Ansichten
-  const getGalleryImages = (productId) => {
-    const galleries = {
-      1: [ // Les Ailes d'Ange
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/l2elv9we_PXL_20260329_064714711_exported_1774766860186.jpg'
-        },
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/mmp0sj52_grok-image-11112b3d-7f26-4eba-887c-22c8593c677e.png'
-        },
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/d722ecdp_grok-image-f13ba83c-8f0a-45fc-bae0-dd0119dcb21c.png'
-        },
-        {
-          type: 'video',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/o15ag1dm_grok-video-587b68e7-e62f-4025-8e0a-fda8dd230bc7.mp4'
-        },
-      ],
-      2: [ // Collier Infini cœur
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/my3vvlui_PXL_20260329_092814300.MP.jpg'
-        },
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/7fiemkw2_grok-image-09e98175-2ac8-4850-a8ad-026731ab11ab.png'
-        },
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/kqhc9oe1_grok-image-306cdc1d-2f2d-4b2b-ac60-a73276083d82.png'
-        },
-        {
-          type: 'video',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/947jy70c_grok-video-306cdc1d-2f2d-4b2b-ac60-a73276083d82.mp4'
-        },
-      ],
-      3: [ // Anneau du démon
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/ol249chw_PXL_20260329_092616320.MP.jpg'
-        },
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/e244gkbl_grok-image-8bc13942-8091-4f3b-8e60-f91487044709.png'
-        },
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/3nbfg9k7_grok-image-57b232c3-2d6c-47e6-97d1-2d07dcbd708d.png'
-        },
-        {
-          type: 'video',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/lm14ctz1_grok-video-9cab6c3b-8c16-4e1e-a05a-61b7435cf4e7.mp4'
-        },
-      ],
-      4: [ // Bracelet de l'infini
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/w673ehs9_PXL_20260329_092604344.MP.jpg'
-        },
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/9o5upor7_grok-image-01615741-8ceb-4ca5-ba0a-c9856da8359c.png'
-        },
-        {
-          type: 'image',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/4mkim7vc_grok-image-d7dee61e-bf9d-407b-a421-3fa3ba77bf12.png'
-        },
-        {
-          type: 'video',
-          url: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/tlyjwren_grok-video-47115dfc-0120-4d5c-b33c-9853915ae336.mp4'
-        },
-      ],
-    };
-    return galleries[productId] || [{ type: 'image', url: product.image }];
-  };
-
-  const gallery = getGalleryImages(product.id);
+  // Fetch gallery from centralized products data
+  const fullProduct = PRODUCTS.find((p) => p.id === product.id) || product;
+  const gallery = fullProduct.gallery || [{ type: 'image', url: product.image }];
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % gallery.length);
+    setZoomed(false);
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
+    setZoomed(false);
   };
 
   const handleAddToCart = () => {
-    toast.success('Zum Warenkorb hinzugefügt');
+    addToCart(fullProduct);
+    toast.success(`${fullProduct.name} zum Warenkorb hinzugefügt`);
+    onClose();
+    setTimeout(() => setCartOpen(true), 300);
   };
 
-  const handleAddToWishlist = () => {
-    toast.success('Zur Wunschliste hinzugefügt');
+  const handleWishlist = () => {
+    toggleWishlist(fullProduct.id);
+    toast(isWishlisted(fullProduct.id) ? 'Von der Wunschliste entfernt' : 'Zur Wunschliste hinzugefügt');
   };
 
   const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href).catch(() => {});
     toast.success('Link kopiert');
   };
 
+  const currentMedia = gallery[currentImageIndex];
+
   return (
-    <Dialog open={open} onOpenChange={onClose}>
+    <Dialog open={open} onOpenChange={(isOpen) => { if (!isOpen) { onClose(); setCurrentImageIndex(0); setZoomed(false); } }}>
       <DialogContent className="max-w-7xl w-full h-[90vh] p-0 bg-card border-primary/20 overflow-hidden">
         {/* Close Button */}
         <button
-          onClick={onClose}
+          onClick={() => { onClose(); setCurrentImageIndex(0); setZoomed(false); }}
+          data-testid="product-detail-close-btn"
           className="absolute top-6 right-6 z-50 h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm border border-primary/20 flex items-center justify-center hover:bg-primary/10 transition-all duration-300"
         >
           <X className="h-5 w-5 text-foreground" />
@@ -126,10 +63,10 @@ export const ProductDetail = ({ product, open, onClose }) => {
           {/* Left Side - Gallery */}
           <div className="relative bg-gradient-deep flex items-center justify-center p-8 lg:p-12">
             {/* Main Image/Video */}
-            <div className="relative w-full h-full flex items-center justify-center">
-              {gallery[currentImageIndex].type === 'video' ? (
+            <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+              {currentMedia.type === 'video' ? (
                 <video
-                  src={gallery[currentImageIndex].url}
+                  src={currentMedia.url}
                   className="max-w-full max-h-full object-contain"
                   controls
                   autoPlay
@@ -137,24 +74,37 @@ export const ProductDetail = ({ product, open, onClose }) => {
                   muted
                 />
               ) : (
-                <img
-                  src={gallery[currentImageIndex].url}
-                  alt={product.name}
-                  className="max-w-full max-h-full object-contain"
-                />
+                <div
+                  className={`relative cursor-zoom-in transition-transform duration-500 ${zoomed ? 'scale-150 cursor-zoom-out' : 'scale-100'}`}
+                  onClick={() => setZoomed((z) => !z)}
+                >
+                  <img
+                    src={currentMedia.url}
+                    alt={fullProduct.name}
+                    className="max-w-full max-h-full object-contain select-none"
+                    draggable={false}
+                  />
+                  {!zoomed && (
+                    <div className="absolute bottom-3 right-3 h-8 w-8 rounded-full bg-card/80 backdrop-blur-sm border border-primary/20 flex items-center justify-center pointer-events-none">
+                      <ZoomIn className="h-4 w-4 text-primary" />
+                    </div>
+                  )}
+                </div>
               )}
-              
+
               {/* Navigation Arrows */}
-              {gallery.length > 1 && (
+              {gallery.length > 1 && !zoomed && (
                 <>
                   <button
                     onClick={prevImage}
+                    data-testid="gallery-prev-btn"
                     className="absolute left-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-card/90 backdrop-blur-sm border border-primary/20 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   >
                     <ChevronLeft className="h-6 w-6" />
                   </button>
                   <button
                     onClick={nextImage}
+                    data-testid="gallery-next-btn"
                     className="absolute right-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-card/90 backdrop-blur-sm border border-primary/20 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   >
                     <ChevronRight className="h-6 w-6" />
@@ -169,7 +119,8 @@ export const ProductDetail = ({ product, open, onClose }) => {
                 {gallery.map((media, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentImageIndex(index)}
+                    onClick={() => { setCurrentImageIndex(index); setZoomed(false); }}
+                    data-testid={`gallery-thumb-${index}`}
                     className={`h-16 w-16 rounded-lg overflow-hidden border-2 transition-all duration-300 relative ${
                       index === currentImageIndex
                         ? 'border-primary shadow-gold-glow'
@@ -182,13 +133,13 @@ export const ProductDetail = ({ product, open, onClose }) => {
                         <div className="absolute inset-0 flex items-center justify-center bg-background/30">
                           <div className="w-6 h-6 rounded-full bg-primary/80 flex items-center justify-center">
                             <svg className="w-3 h-3 text-white ml-0.5" fill="currentColor" viewBox="0 0 16 16">
-                              <path d="M3 2v12l10-6z"/>
+                              <path d="M3 2v12l10-6z" />
                             </svg>
                           </div>
                         </div>
                       </>
                     ) : (
-                      <img src={media.url} alt={`View ${index + 1}`} className="w-full h-full object-cover" />
+                      <img src={media.url} alt={`Ansicht ${index + 1}`} className="w-full h-full object-cover" />
                     )}
                   </button>
                 ))}
@@ -198,35 +149,33 @@ export const ProductDetail = ({ product, open, onClose }) => {
 
           {/* Right Side - Details */}
           <div className="relative overflow-y-auto p-8 lg:p-12">
-            <DialogTitle className="sr-only">{product.name}</DialogTitle>
-            
+            <DialogTitle className="sr-only">{fullProduct.name}</DialogTitle>
+
             <div className="space-y-8">
               {/* Header */}
               <div>
-                {product.featured && (
+                {fullProduct.featured && (
                   <Badge className="bg-gradient-gold-shimmer text-primary-foreground mb-4">
-                    Top-Modell
+                    Haute Joaillerie
                   </Badge>
                 )}
                 <p className="text-xs text-primary font-light tracking-widest uppercase mb-3">
-                  {product.subtitle}
+                  {fullProduct.subtitle}
                 </p>
                 <h2 className="font-serif text-4xl lg:text-5xl font-semibold text-foreground mb-6">
-                  {product.name}
+                  {fullProduct.name}
                 </h2>
-                <p className="font-serif text-4xl font-semibold text-primary">
-                  {product.price}
-                </p>
+                <p className="font-serif text-4xl font-semibold text-primary">{fullProduct.price}</p>
               </div>
 
               {/* Description */}
               <div className="border-t border-b border-primary/20 py-6">
                 <p className="text-foreground/80 leading-relaxed font-light text-base">
-                  {product.description}
+                  {fullProduct.description}
                 </p>
               </div>
 
-              {/* Detailed Specifications */}
+              {/* Technical Details */}
               <div className="space-y-4">
                 <h3 className="font-serif text-xl font-semibold text-foreground mb-4">
                   Technische Details
@@ -234,7 +183,7 @@ export const ProductDetail = ({ product, open, onClose }) => {
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
                     <p className="text-foreground/60 font-light mb-1">Material</p>
-                    <p className="text-foreground font-normal">{product.material || '18K Gold'}</p>
+                    <p className="text-foreground font-normal">{fullProduct.material}</p>
                   </div>
                   <div>
                     <p className="text-foreground/60 font-light mb-1">Verarbeitung</p>
@@ -253,30 +202,23 @@ export const ProductDetail = ({ product, open, onClose }) => {
 
               {/* Features */}
               <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <Sparkles className="h-5 w-5 text-primary mt-0.5" />
-                  <p className="text-sm text-foreground/80 font-light">
-                    Jedes Stück wird individuell von Leon Gogoll gefertigt
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Sparkles className="h-5 w-5 text-primary mt-0.5" />
-                  <p className="text-sm text-foreground/80 font-light">
-                    Zertifizierte Edelsteine mit Echtheitszertifikat
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Sparkles className="h-5 w-5 text-primary mt-0.5" />
-                  <p className="text-sm text-foreground/80 font-light">
-                    Kostenlose Gravur und luxuriöse Geschenkverpackung
-                  </p>
-                </div>
+                {[
+                  'Jedes Stück wird individuell von Leon Gogoll gefertigt',
+                  'Zertifizierte Edelsteine mit Echtheitszertifikat',
+                  'Kostenlose Gravur und luxuriöse Geschenkverpackung',
+                ].map((feature, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <Sparkles className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-foreground/80 font-light">{feature}</p>
+                  </div>
+                ))}
               </div>
 
               {/* Action Buttons */}
               <div className="space-y-3 pt-4">
                 <Button
                   size="lg"
+                  data-testid="product-detail-add-to-cart-btn"
                   className="w-full bg-primary hover:bg-accent text-primary-foreground font-light tracking-wide transition-all duration-300 hover:scale-[1.02] shadow-gold-glow"
                   onClick={handleAddToCart}
                 >
@@ -287,15 +229,19 @@ export const ProductDetail = ({ product, open, onClose }) => {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="border-primary/30 hover:bg-primary/10 font-light"
-                    onClick={handleAddToWishlist}
+                    data-testid="product-detail-wishlist-btn"
+                    className={`border-primary/30 font-light transition-all duration-300 ${
+                      isWishlisted(fullProduct.id) ? 'bg-primary/20 text-primary border-primary/50' : 'hover:bg-primary/10'
+                    }`}
+                    onClick={handleWishlist}
                   >
-                    <Heart className="h-5 w-5 mr-2" />
-                    Merken
+                    <Heart className={`h-5 w-5 mr-2 ${isWishlisted(fullProduct.id) ? 'fill-current' : ''}`} />
+                    {isWishlisted(fullProduct.id) ? 'Gemerkt' : 'Merken'}
                   </Button>
                   <Button
                     variant="outline"
                     size="lg"
+                    data-testid="product-detail-share-btn"
                     className="border-primary/30 hover:bg-primary/10 font-light"
                     onClick={handleShare}
                   >

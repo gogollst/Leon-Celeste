@@ -3,53 +3,20 @@ import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Eye, Heart } from 'lucide-react';
 import { ProductDetail } from './ProductDetail';
+import { PRODUCTS } from '../data/products';
+import { useCart } from '../context/CartContext';
+import { toast } from 'sonner';
 
 export const SignaturePieces = () => {
   const [hoveredId, setHoveredId] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const { toggleWishlist, isWishlisted } = useCart();
 
-  const signaturePieces = [
-    {
-      id: 1,
-      name: 'Les Ailes d\'Ange',
-      subtitle: 'Signature Angel Ring',
-      price: '22.500 €',
-      image: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/l2elv9we_PXL_20260329_064714711_exported_1774766860186.jpg',
-      description: 'Das exklusive Meisterstück – handgefertigte Engelsflügel aus Sterling Silber mit 18K Gold-Akzent. Ein Symbol für Schutz und himmlische Eleganz.',
-      material: 'Sterling Silber & 18K Gold',
-      featured: true,
-    },
-    {
-      id: 2,
-      name: 'Collier Infini cœur',
-      subtitle: 'Infinite Heart Necklace',
-      price: '16.900 €',
-      image: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/my3vvlui_PXL_20260329_092814300.MP.jpg',
-      description: 'Das Collier des unendlichen Herzens – ein majestätisches Statement-Collier aus 18K Gold mit blauen Saphiren. Verbindet zeitlose Liebe mit unendlicher Eleganz.',
-      material: '18K Gold & Saphire',
-      featured: true,
-    },
-    {
-      id: 3,
-      name: 'Anneau du démon',
-      subtitle: 'The Demon Ring',
-      price: '19.500 €',
-      image: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/ol249chw_PXL_20260329_092616320.MP.jpg',
-      description: 'Der Dämonenring – ein kraftvolles Statement aus geschwärztem Sterling Silber. Die dunkle Seite des Luxus, wo Eleganz auf mystische Macht trifft.',
-      material: 'Geschwärztes Sterling Silber',
-      featured: true,
-    },
-    {
-      id: 4,
-      name: 'Bracelet de l\'infini',
-      subtitle: 'The Infinity Bracelet',
-      price: '14.800 €',
-      image: 'https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/w673ehs9_PXL_20260329_092604344.MP.jpg',
-      description: 'Das Unendlichkeitsarmband – ein elegantes Statement aus vergoldetem Sterling Silber. Symbolisiert ewige Verbindung und zeitlose Eleganz. "Good Luck - Wherever you go, may luck and love follow."',
-      material: 'Vergoldetes Sterling Silber',
-      featured: true,
-    },
-  ];
+  const handleWishlist = (e, product) => {
+    e.stopPropagation();
+    toggleWishlist(product.id);
+    toast(isWishlisted(product.id) ? 'Von der Wunschliste entfernt' : 'Zur Wunschliste hinzugefügt');
+  };
 
   return (
     <section id="signature" className="relative py-32 lg:py-40 overflow-hidden">
@@ -71,36 +38,30 @@ export const SignaturePieces = () => {
 
         {/* Products Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {signaturePieces.map((piece, index) => (
+          {PRODUCTS.map((piece, index) => (
             <Card
               key={piece.id}
-              className={`group relative bg-card/30 backdrop-blur-sm border-primary/10 overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-gold-glow animate-fade-in-up flex flex-col cursor-pointer ${
-                piece.featured ? 'lg:col-span-2 lg:row-span-1' : ''
-              }`}
+              data-testid={`signature-piece-${piece.id}`}
+              className="group relative bg-card/30 backdrop-blur-sm border-primary/10 overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-gold-glow animate-fade-in-up flex flex-col cursor-pointer"
               style={{ animationDelay: `${index * 100}ms` }}
               onMouseEnter={() => setHoveredId(piece.id)}
               onMouseLeave={() => setHoveredId(null)}
               onClick={() => setSelectedProduct(piece)}
             >
               {/* Image Container */}
-              <div 
-                className={`relative overflow-hidden ${piece.featured ? 'aspect-[16/10]' : 'aspect-square'}`}
-              >
+              <div className="relative overflow-hidden aspect-[3/4]">
                 <img
                   src={piece.image}
                   alt={piece.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
-                
+
                 {/* Featured Badge */}
-                {piece.featured && (
-                  <div className="absolute top-6 left-6 px-4 py-2 bg-gradient-gold-shimmer text-primary-foreground text-xs font-light tracking-widest uppercase shadow-gold-glow">
-                    Top-Modell
-                  </div>
-                )}
-                
+                <div className="absolute top-6 left-6 px-3 py-1 bg-gradient-gold-shimmer text-primary-foreground text-xs font-light tracking-widest uppercase shadow-gold-glow">
+                  Haute Joaillerie
+                </div>
+
                 {/* Hover Actions */}
                 <div
                   className={`absolute inset-0 flex items-center justify-center gap-3 transition-opacity duration-500 ${
@@ -110,6 +71,7 @@ export const SignaturePieces = () => {
                   <Button
                     size="icon"
                     variant="secondary"
+                    data-testid={`signature-view-btn-${piece.id}`}
                     className="h-12 w-12 rounded-full bg-card/90 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                     onClick={(e) => {
                       e.stopPropagation();
@@ -121,27 +83,36 @@ export const SignaturePieces = () => {
                   <Button
                     size="icon"
                     variant="secondary"
-                    className="h-12 w-12 rounded-full bg-card/90 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                    onClick={(e) => e.stopPropagation()}
+                    data-testid={`signature-wishlist-btn-${piece.id}`}
+                    className={`h-12 w-12 rounded-full bg-card/90 backdrop-blur-sm transition-all duration-300 ${
+                      isWishlisted(piece.id)
+                        ? 'bg-primary text-primary-foreground'
+                        : 'hover:bg-primary hover:text-primary-foreground'
+                    }`}
+                    onClick={(e) => handleWishlist(e, piece)}
                   >
-                    <Heart className="h-5 w-5" />
+                    <Heart className={`h-5 w-5 ${isWishlisted(piece.id) ? 'fill-current' : ''}`} />
                   </Button>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-8 space-y-4 flex flex-col flex-grow">
+              <div className="p-6 space-y-3 flex flex-col flex-grow">
                 <div className="flex-grow">
                   <p className="text-xs text-primary font-light tracking-widest uppercase">{piece.subtitle}</p>
-                  <h3 className={`font-serif font-semibold text-foreground mt-2 ${piece.featured ? 'text-3xl' : 'text-2xl'}`}>{piece.name}</h3>
-                  <p className="text-sm text-foreground/60 mt-3 leading-relaxed font-light">{piece.description}</p>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mt-2">{piece.name}</h3>
+                  <p className="text-sm text-foreground/60 mt-2 leading-relaxed font-light line-clamp-2">{piece.description}</p>
                 </div>
-                <div className="flex items-center justify-between pt-6 border-t border-primary/20 mt-auto">
-                  <span className={`font-serif font-semibold text-primary ${piece.featured ? 'text-3xl' : 'text-2xl'}`}>{piece.price}</span>
+                <div className="flex items-center justify-between pt-4 border-t border-primary/20 mt-auto">
+                  <span className="font-serif text-2xl font-semibold text-primary">{piece.price}</span>
                   <Button
                     size="sm"
                     variant="ghost"
                     className="text-primary hover:bg-primary/10 font-light tracking-wide transition-all duration-300"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedProduct(piece);
+                    }}
                   >
                     Details
                   </Button>
@@ -155,6 +126,7 @@ export const SignaturePieces = () => {
         <div className="text-center mt-16">
           <Button
             size="lg"
+            onClick={() => document.getElementById('collections')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-primary hover:bg-accent text-primary-foreground font-light px-12 py-7 text-base tracking-wide transition-all duration-500 hover:scale-105 shadow-gold-glow"
           >
             Alle Signature Stücke

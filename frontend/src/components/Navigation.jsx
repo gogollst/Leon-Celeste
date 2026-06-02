@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { Menu, Search, ShoppingBag, User } from 'lucide-react';
+import { Menu, Search, ShoppingBag, User, Heart } from 'lucide-react';
+import { useCart } from '../context/CartContext';
 
 export const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [cartCount] = useState(0);
+  const { cartCount, setCartOpen, wishlist } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,24 +62,37 @@ export const Navigation = () => {
           </div>
 
           {/* Action Icons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
             <Button
               variant="ghost"
               size="icon"
+              data-testid="nav-search-btn"
               className="text-foreground hover:text-primary transition-colors"
             >
               <Search className="h-5 w-5" />
             </Button>
+
+            {/* Wishlist Icon */}
             <Button
               variant="ghost"
               size="icon"
-              className="text-foreground hover:text-primary transition-colors hidden lg:flex"
+              data-testid="nav-wishlist-btn"
+              className="text-foreground hover:text-primary transition-colors hidden lg:flex relative"
             >
-              <User className="h-5 w-5" />
+              <Heart className={`h-5 w-5 ${wishlist.length > 0 ? 'fill-primary text-primary' : ''}`} />
+              {wishlist.length > 0 && (
+                <span className="absolute -top-1 -right-1 h-4 w-4 bg-primary text-primary-foreground text-[10px] rounded-full flex items-center justify-center font-medium">
+                  {wishlist.length}
+                </span>
+              )}
             </Button>
+
+            {/* Cart Icon */}
             <Button
               variant="ghost"
               size="icon"
+              data-testid="nav-cart-btn"
+              onClick={() => setCartOpen(true)}
               className="text-foreground hover:text-primary transition-colors relative"
             >
               <ShoppingBag className="h-5 w-5" />
