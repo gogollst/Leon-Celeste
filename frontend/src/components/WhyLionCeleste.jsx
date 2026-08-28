@@ -41,7 +41,7 @@ export const WhyLionCeleste = () => {
       <div 
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1640303850203-7bf7c76b4557?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxkYXJrJTIwZWxlZ2FudHxlbnwwfHx8YmxhY2t8MTc3NDc2ODU4N3ww&ixlib=rb-4.1.0&q=85)',
+          backgroundImage: 'url(/assets/unsplash-dark-elegant.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

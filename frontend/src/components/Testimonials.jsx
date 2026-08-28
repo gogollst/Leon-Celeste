@@ -10,7 +10,7 @@ export const Testimonials = () => {
       location: 'München',
       text: 'Das Céleste Éternité ist nicht nur ein Ring – es ist ein Kunstwerk. Die Qualität und Verarbeitung sind unglaublich. Ich habe noch nie so viele Komplimente bekommen.',
       rating: 5,
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150',
+      image: '/assets/testimonial-2.jpg',
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ export const Testimonials = () => {
       location: 'Hamburg',
       text: 'Für den Verlobungsring meiner Frau wollte ich nur das Beste. Lion Céleste hat alle Erwartungen übertroffen. Die persönliche Beratung und das Ergebnis sind phänomenal.',
       rating: 5,
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
+      image: '/assets/testimonial-1.jpg',
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ export const Testimonials = () => {
       location: 'Berlin',
       text: 'Zeitlose Eleganz und außergewöhnliches Design. Das Ange de Lumière Collier ist mein wertvollstes Schmuckstück. Man spürt die Leidenschaft in jedem Detail.',
       rating: 5,
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
+      image: '/assets/testimonial-3.jpg',
     },
   ];
 

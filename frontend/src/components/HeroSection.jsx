@@ -23,7 +23,7 @@ export const HeroSection = () => {
         ref={parallaxRef}
         className="absolute inset-0 w-full h-[120%] -top-[10%] z-0"
         style={{
-          backgroundImage: 'url(https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/v26xr551_leon-hero-section.png)',
+          backgroundImage: 'url(/assets/leon-hero-section.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

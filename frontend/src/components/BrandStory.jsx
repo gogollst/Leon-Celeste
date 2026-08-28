@@ -14,7 +14,7 @@ export const BrandStory = () => {
           <div className="relative animate-fade-in">
             <div className="relative overflow-hidden shadow-premium">
               <img
-                src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/fwzkih1v_grok-image-919b28fd-cce9-488b-b466-c587160b23c6.png"
+                src="/assets/grok-image-919b28fd.png"
                 alt="Leon Gogoll - Designer & Gründer"
                 className="w-full h-[600px] object-cover"
               />
@@ -23,7 +23,7 @@ export const BrandStory = () => {
             {/* Floating Badge */}
             <div className="absolute -bottom-8 -right-8 bg-card/95 backdrop-blur-sm p-8 shadow-gold-glow border border-primary/20">
               <img
-                src="https://customer-assets.emergentagent.com/job_1d70ba6d-581f-4f6a-9014-a5b70126b281/artifacts/j6me6snb_logo-lion-celetse.jpg"
+                src="/assets/logo-lion-celeste.jpg"
                 alt="Lion Céleste"
                 className="h-24 w-24"
               />
